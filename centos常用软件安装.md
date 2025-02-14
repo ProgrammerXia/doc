@@ -344,7 +344,19 @@ server-id=1
 mysqldump --user root -p --databases origin_dict --routines > test.sql
 mysql --default-character-set=utf8mb4 --database=db --user=root -p --host=10.1.139.42 --port=3306 < test.sql
 ```
+### mysql 更改编码、排序
 
+- 更改数据库
+
+ALTER DATABASE <database_name> CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+
+- 更改表
+
+ALTER TABLE <table_name> CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+
+- 更改字段
+
+ALTER TABLE <table_name> MODIFY <column_name> VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 
 ##  Miniconda 安装
 - 到[官网](https://docs.anaconda.com/free/miniconda/)下载 [`sh` 文件](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh)
